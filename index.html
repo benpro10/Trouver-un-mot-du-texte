@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Promoesse & Regex & Dom</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p id="article" style="text-align: justify">
+    <p id="article">
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit quibusdam
       repellat consequuntur cupiditate veritatis? Eaque sunt voluptatem
       blanditiis ipsum, dolorem cupiditate nostrum est recusandae ducimus quam,
@@ -63,13 +64,15 @@
       sapiente at dignissimos ea aspernatur, iste asperiores magnam est hic nisi
       itaque. Aut, qui!
     </p>
-    <input
+    <div class="SearchItem">
+      <input
       type="text"
       id="searchTerm"
       placeholder="Entrez un mot à rechercher"
     />
-    <button id="searchButton">Rechercher</button>
-    <p id="resultMessage" style="display: none"></p>
+    <button id="searchButton" >Rechercher</button>
+    <p id="resultMessage"></p>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>

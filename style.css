@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px;
+}
+
+#article {
+  text-align: justify;
+  margin-bottom: 20px;
+  font-size: 17px;
+  border: solid 2px #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.SearchItem {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#searchTerm{
+    border: solid 2px #ddd;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    height: 25px;
+}
+
+#searchButton {
+  border-radius: 10px;
+  width: 150px;
+  border: solid 1px #ddd;
+  cursor: pointer;
+}
+
+#resultMessage{
+    font-weight: bold;
+    flex: 1 1 100%;
+    text-align: center;
+}
+

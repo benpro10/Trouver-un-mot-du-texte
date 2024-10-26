@@ -1,48 +1,53 @@
-const inputMotRechercher = document.querySelector("#searchTerm");
-const motRechercher = inputMotRechercher.value;
+// la selection du texte
+const article = document.querySelector("#article");
 
+// la selection du champ de saisie
+const inputMotRechercher = document.querySelector("#searchTerm");
+
+// La selection du bouton pour rechercher le mot saisi
 const btnRechercher = document.querySelector("#searchButton");
+
+// La selection du message
 const message = document.querySelector("#resultMessage");
 
 // Promesse avant retour du resultat attendu
 
 function resultatRechercher(motRechercher) {
-  const promise = new promise((resolve, reject) => {
-    // simuler une recherche asynchrone du mot dans le texte (exemple : un délai de 2 secondes avant de retourner le résultat)
-
-    motRechercher.onload = () =>
-      resolve("le mot ou la phrase" + motRechercher + "a été bien trouvé");
-    motRechercher.error = () => reject(new Error("le mot n'a pas été trouvé"));
+  return new Promise((resolve) => {
+    // simuler une attente de 2 secondes avant de retourner le résultat
+    setTimeout(() => {
+      const masque = new RegExp(`\\b${motRechercher}\\b`, "i");
+      const trouve = masque.test(article.textContent);
+      resolve(trouve);
+    }, 2000);
   });
-  return promise;
 }
 
-// Recherche du mot et affichage du résultat
+// Gestion du clic pour le bouton de recherche
 
+btnRechercher.addEventListener("click", async () => {
+  const motCherche = inputMotRechercher.value.trim();
+  if (motCherche === "") {
+    message.textContent = "Veillez saisir le mot à rechercher";
+    return;
+  } else message.textContent = "Recherche en cours...";
 
+  try {
+    // Attendre le message de la promesse
+    const motEstTrouve = await resultatRechercher(motCherche);
 
+    if (motEstTrouve) {
+      message.textContent = `le mot ${motCherche} a été trouvé dans le texte !!!`;
+    } else {
+      message.textContent = `le mot ${(motCherche)} n'a pas été trouvé dans le textze`;
+    }
+  } catch (error) {
+    message.textContent = "une erreur a été trouvé lors de la recherche";
+  }
+});
 
-
-// btnRechercher.addEventListener("click", () => {
-//   resultatRechercher(motRechercher)
-//    .then((resultat) => {
-//       message.textContent = resultat;
-//     })
-//    .catch((error) => {
-//       message.textContent = error.message;
-//     });
-// });
-
-
-
-// function fetchData(motRechercher) {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       if (motRechercher === "error") {
-//         reject("Erreur lors de la recherche");
-//       } else {
-//         resolve("Résultat de la recherche : " + motRechercher);
-//       }
-//     }, 1000);
-//   });
-// }
+inputMotRechercher.addEventListener("input", () => {
+  if (inputMotRechercher.value.trim() === "") {
+    message.textContent = "Veillez saisir le mot à rechercher";
+  }
+});
