@@ -13,18 +13,18 @@ body {
 }
 
 .SearchItem {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-#searchTerm{
-    border: solid 2px #ddd;
-    border-radius: 10px;
-    width: 200px;
-    text-align: center;
-    height: 25px;
+#searchTerm {
+  border: solid 2px #ddd;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  height: 25px;
 }
 
 #searchButton {
@@ -34,9 +34,13 @@ body {
   cursor: pointer;
 }
 
-#resultMessage{
-    font-weight: bold;
-    flex: 1 1 100%;
-    text-align: center;
+#resultMessage {
+  font-weight: bold;
+  flex: 1 1 100%;
+  text-align: center;
 }
 
+mark {
+  background-color: red;
+  font-weight: bold;
+}
